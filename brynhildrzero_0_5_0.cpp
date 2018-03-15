@@ -9,36 +9,36 @@
 #pragma						comment(lib,"imm32")
 #pragma						comment(lib,"winmm.lib")
 
-char						*g_connect_ver;						//’ÊMƒo[ƒWƒ‡ƒ“
+char						*g_connect_ver;						//é€šä¿¡ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 char						*g_ip;								//IP
 unsigned short				g_port;								//Port
-char						*g_encryption_key;					//ƒpƒXƒ[ƒhiÅ‘å16bytej
-SOCKET						g_sock1;							//ƒ\ƒPƒbƒgi‘€ìŒnj
-SOCKET						g_sock2;							//ƒ\ƒPƒbƒgi‰æ‘œŒnj
-SOCKET						g_sock3;							//ƒ\ƒPƒbƒgi‰¹ºŒnj
-long						g_sock1_ct;							//‘€ìŒnÚ‘±ƒJƒEƒ“ƒg
-long						g_sock2_ct;							//‰æ‘œŒnÚ‘±ƒJƒEƒ“ƒg
+char						*g_encryption_key;					//ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼ˆæœ€å¤§16byteï¼‰
+SOCKET						g_sock1;							//ã‚½ã‚±ãƒƒãƒˆï¼ˆæ“ä½œç³»ï¼‰
+SOCKET						g_sock2;							//ã‚½ã‚±ãƒƒãƒˆï¼ˆç”»åƒç³»ï¼‰
+SOCKET						g_sock3;							//ã‚½ã‚±ãƒƒãƒˆï¼ˆéŸ³å£°ç³»ï¼‰
+long						g_sock1_ct;							//æ“ä½œç³»æ¥ç¶šã‚«ã‚¦ãƒ³ãƒˆ
+long						g_sock2_ct;							//ç”»åƒç³»æ¥ç¶šã‚«ã‚¦ãƒ³ãƒˆ
 struct sockaddr_in			g_addr;
 
-long						g_end;								//I—¹ƒtƒ‰ƒO
-HWND						g_hwnd;								//ƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
-long						g_window_cx;						//ƒEƒCƒ“ƒhƒE•
-long						g_window_cy;						//ƒEƒCƒ“ƒhƒE‚‚³
-long						g_capture_cx;						//ƒLƒƒƒvƒ`ƒƒ[•
-long						g_capture_cy;						//ƒLƒƒƒvƒ`ƒƒ[‚‚³
-long						g_mouse_x;							//ƒ}ƒEƒXÀ•W‚w²
-long						g_mouse_y;							//ƒ}ƒEƒXÀ•W‚x²
-char						g_mouse_left[256];					//ƒ}ƒEƒXƒ{ƒ^ƒ“i¶j
-char						g_mouse_right[256];					//ƒ}ƒEƒXƒ{ƒ^ƒ“i‰Ej
-char						g_mouse_middle[256];				//ƒ}ƒEƒXƒ{ƒ^ƒ“i’†j
-char						g_mouse_wheel[256];					//ƒ}ƒEƒXƒzƒC[ƒ‹
-char						g_mouse_x1[256];					//ƒ}ƒEƒXƒ{ƒ^ƒ“i–ß‚éj
-char						g_mouse_x2[256];					//ƒ}ƒEƒXƒ{ƒ^ƒ“ii‚Şj
-char						g_keyboard1[256];					//ƒL[ƒ{[ƒh
-char						g_keyboard2[256];					//ƒL[ƒ{[ƒh
-long						g_shift_down;						//SHIFTƒL[
-long						g_alt_down;							//ALTƒL[
-long						g_ctrl_down;						//CTRLƒL[
+long						g_end;								//çµ‚äº†ãƒ•ãƒ©ã‚°
+HWND						g_hwnd;								//ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+long						g_window_cx;						//ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦å¹…
+long						g_window_cy;						//ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦é«˜ã•
+long						g_capture_cx;						//ã‚­ãƒ£ãƒ—ãƒãƒ£ãƒ¼å¹…
+long						g_capture_cy;						//ã‚­ãƒ£ãƒ—ãƒãƒ£ãƒ¼é«˜ã•
+long						g_mouse_x;							//ãƒã‚¦ã‚¹åº§æ¨™ï¼¸è»¸
+long						g_mouse_y;							//ãƒã‚¦ã‚¹åº§æ¨™ï¼¹è»¸
+char						g_mouse_left[256];					//ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ï¼ˆå·¦ï¼‰
+char						g_mouse_right[256];					//ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ï¼ˆå³ï¼‰
+char						g_mouse_middle[256];				//ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ï¼ˆä¸­ï¼‰
+char						g_mouse_wheel[256];					//ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«
+char						g_mouse_x1[256];					//ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ï¼ˆæˆ»ã‚‹ï¼‰
+char						g_mouse_x2[256];					//ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³ï¼ˆé€²ã‚€ï¼‰
+char						g_keyboard1[256];					//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰
+char						g_keyboard2[256];					//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰
+long						g_shift_down;						//SHIFTã‚­ãƒ¼
+long						g_alt_down;							//ALTã‚­ãƒ¼
+long						g_ctrl_down;						//CTRLã‚­ãƒ¼
 
 LPDIRECTSOUND				g_ds;
 LPDIRECTSOUNDBUFFER			g_dsb;
@@ -47,56 +47,56 @@ WAVEFORMATEXTENSIBLE		*g_ca_format;
 char						*g_ds_sound_buf;
 long						g_ds_sound_pt;
 
-struct COM_DATA													//ƒwƒbƒ_[i256bytej
+struct COM_DATA													//ãƒ˜ãƒƒãƒ€ãƒ¼ï¼ˆ256byteï¼‰
 {
-	char					data_type;							//1:’Êíƒf[ƒ^
-	char					thread;								//1:‘€ìŒn,2:‰æ‘œŒn,3:‰¹ºŒn
+	char					data_type;							//1:é€šå¸¸ãƒ‡ãƒ¼ã‚¿
+	char					thread;								//1:æ“ä½œç³»,2:ç”»åƒç³»,3:éŸ³å£°ç³»
 
 	char					___filler_1[1];
 
-	char					sound_type;							//0:‰¹º‚È‚µ,1:‰¹º‚ ‚è
-	char					encryption;							//0:”ñˆÃ†‰»’ÊM
+	char					sound_type;							//0:éŸ³å£°ãªã—,1:éŸ³å£°ã‚ã‚Š
+	char					encryption;							//0:éæš—å·åŒ–é€šä¿¡
 
 	char					___filler_2[3];
 
-	long					data_size;							//ƒf[ƒ^ƒTƒCƒY
+	long					data_size;							//ãƒ‡ãƒ¼ã‚¿ã‚µã‚¤ã‚º
 
 	char					___filler_3[4];
 
-	char					check_digit_enc[16];				//ƒ`ƒFƒbƒNƒfƒBƒWƒbƒgiƒnƒbƒVƒ…‰»j
+	char					check_digit_enc[16];				//ãƒã‚§ãƒƒã‚¯ãƒ‡ã‚£ã‚¸ãƒƒãƒˆï¼ˆãƒãƒƒã‚·ãƒ¥åŒ–ï¼‰
 
 //32
 
-	long					check_digit;						//ƒ`ƒFƒbƒNƒfƒBƒWƒbƒg
-	char					ver[4];								//’ÊMƒo[ƒWƒ‡ƒ“
-	long					samplerate;							//ƒTƒ“ƒvƒ‹ƒŒ[ƒg
-	long					image_cx;							//‰æ‘œ•
-	long					image_cy;							//‰æ‘œ‚‚³
-	long					server_cx;							//ƒT[ƒo[‘¤‰æ–Ê•
-	long					server_cy;							//ƒT[ƒo[‘¤‰æ–Ê‚‚³
-	long					control;							//1:‘€ì
+	long					check_digit;						//ãƒã‚§ãƒƒã‚¯ãƒ‡ã‚£ã‚¸ãƒƒãƒˆ
+	char					ver[4];								//é€šä¿¡ãƒãƒ¼ã‚¸ãƒ§ãƒ³
+	long					samplerate;							//ã‚µãƒ³ãƒ—ãƒ«ãƒ¬ãƒ¼ãƒˆ
+	long					image_cx;							//ç”»åƒå¹…
+	long					image_cy;							//ç”»åƒé«˜ã•
+	long					server_cx;							//ã‚µãƒ¼ãƒãƒ¼å´ç”»é¢å¹…
+	long					server_cy;							//ã‚µãƒ¼ãƒãƒ¼å´ç”»é¢é«˜ã•
+	long					control;							//1:æ“ä½œ
 
 //64
 
-	char					mouse_move;							//0:ƒ}ƒEƒXÃ~,1:ƒ}ƒEƒX“®ì
+	char					mouse_move;							//0:ãƒã‚¦ã‚¹é™æ­¢,1:ãƒã‚¦ã‚¹å‹•ä½œ
 
 	char					___filler_4[1];
 
-	char					mouse_x1;							//ƒ}ƒEƒX–ß‚éƒ{ƒ^ƒ“i1:ƒ_ƒEƒ“,2:ƒAƒbƒv,3:ƒ_ƒuƒ‹ƒNƒŠƒbƒNj
-	char					mouse_x2;							//ƒ}ƒEƒXi‚Şƒ{ƒ^ƒ“i1:ƒ_ƒEƒ“,2:ƒAƒbƒv,3:ƒ_ƒuƒ‹ƒNƒŠƒbƒNj
-	long					mouse_x;							//ƒ}ƒEƒXÀ•W‚w²
-	long					mouse_y;							//ƒ}ƒEƒXÀ•W‚x²
-	char					mouse_left;							//ƒ}ƒEƒX¶ƒ{ƒ^ƒ“i1:ƒ_ƒEƒ“,2:ƒAƒbƒv,3:ƒ_ƒuƒ‹ƒNƒŠƒbƒNj
-	char					mouse_right;						//ƒ}ƒEƒX‰Eƒ{ƒ^ƒ“i1:ƒ_ƒEƒ“,2:ƒAƒbƒv,3:ƒ_ƒuƒ‹ƒNƒŠƒbƒNj
-	char					mouse_middle;						//ƒ}ƒEƒX’†ƒ{ƒ^ƒ“i1:ƒ_ƒEƒ“,2:ƒAƒbƒv,3:ƒ_ƒuƒ‹ƒNƒŠƒbƒNj
-	char					mouse_wheel;						//ƒ}ƒEƒXƒzƒC[ƒ‹ˆÚ“®—Ê
-	char					keycode;							//ƒL[ƒR[ƒh
-	char					keycode_flg;						//ƒL[ƒtƒ‰ƒOi0x00:KeyUp,0x80:KeyDownj
+	char					mouse_x1;							//ãƒã‚¦ã‚¹æˆ»ã‚‹ãƒœã‚¿ãƒ³ï¼ˆ1:ãƒ€ã‚¦ãƒ³,2:ã‚¢ãƒƒãƒ—,3:ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ï¼‰
+	char					mouse_x2;							//ãƒã‚¦ã‚¹é€²ã‚€ãƒœã‚¿ãƒ³ï¼ˆ1:ãƒ€ã‚¦ãƒ³,2:ã‚¢ãƒƒãƒ—,3:ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ï¼‰
+	long					mouse_x;							//ãƒã‚¦ã‚¹åº§æ¨™ï¼¸è»¸
+	long					mouse_y;							//ãƒã‚¦ã‚¹åº§æ¨™ï¼¹è»¸
+	char					mouse_left;							//ãƒã‚¦ã‚¹å·¦ãƒœã‚¿ãƒ³ï¼ˆ1:ãƒ€ã‚¦ãƒ³,2:ã‚¢ãƒƒãƒ—,3:ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ï¼‰
+	char					mouse_right;						//ãƒã‚¦ã‚¹å³ãƒœã‚¿ãƒ³ï¼ˆ1:ãƒ€ã‚¦ãƒ³,2:ã‚¢ãƒƒãƒ—,3:ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ï¼‰
+	char					mouse_middle;						//ãƒã‚¦ã‚¹ä¸­ãƒœã‚¿ãƒ³ï¼ˆ1:ãƒ€ã‚¦ãƒ³,2:ã‚¢ãƒƒãƒ—,3:ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ï¼‰
+	char					mouse_wheel;						//ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«ç§»å‹•é‡
+	char					keycode;							//ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰
+	char					keycode_flg;						//ã‚­ãƒ¼ãƒ•ãƒ©ã‚°ï¼ˆ0x00:KeyUp,0x80:KeyDownï¼‰
 
 	char					___filler_6[2];
 
-	char					monitor_no;							//ƒ‚ƒjƒ^[”Ô†
-	char					monitor_count;						//ƒ‚ƒjƒ^[”
+	char					monitor_no;							//ãƒ¢ãƒ‹ã‚¿ãƒ¼ç•ªå·
+	char					monitor_count;						//ãƒ¢ãƒ‹ã‚¿ãƒ¼æ•°
 
 	char					___filler_7[6];
 
@@ -106,51 +106,51 @@ struct COM_DATA													//ƒwƒbƒ_[i256bytej
 
 	char					___filler_8[40];
 
-	long					keydown;							//ƒL[‰Ÿ‰ºi1:‰Ÿ‰º‚ ‚è,0:‰Ÿ‰º‚È‚µj
-	long					video_quality;						//‰æ¿i1:Å’á‰æ¿,3:’á‰æ¿,5:•W€‰æ¿,7:‚‰æ¿,9:Å‚‰æ¿j
+	long					keydown;							//ã‚­ãƒ¼æŠ¼ä¸‹ï¼ˆ1:æŠ¼ä¸‹ã‚ã‚Š,0:æŠ¼ä¸‹ãªã—ï¼‰
+	long					video_quality;						//ç”»è³ªï¼ˆ1:æœ€ä½ç”»è³ª,3:ä½ç”»è³ª,5:æ¨™æº–ç”»è³ª,7:é«˜ç”»è³ª,9:æœ€é«˜ç”»è³ªï¼‰
 
 //144
 
-	long					mouse_cursor;						//ƒ}ƒEƒXƒJ[ƒ\ƒ‹•\¦i0:©“®,1:•\¦ŒÅ’è,2:”ñ•\¦ŒÅ’èj
+	long					mouse_cursor;						//ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤ºï¼ˆ0:è‡ªå‹•,1:è¡¨ç¤ºå›ºå®š,2:éè¡¨ç¤ºå›ºå®šï¼‰
 
 	char					___filler_9[20];
 
-	long					gamepad1;							//ƒQ[ƒ€ƒpƒbƒhiXposj
-	long					gamepad2;							//ƒQ[ƒ€ƒpƒbƒhiYposj
-	long					gamepad3;							//ƒQ[ƒ€ƒpƒbƒhiZposj
-	long					gamepad4;							//ƒQ[ƒ€ƒpƒbƒhiRposj
+	long					gamepad1;							//ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ï¼ˆXposï¼‰
+	long					gamepad2;							//ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ï¼ˆYposï¼‰
+	long					gamepad3;							//ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ï¼ˆZposï¼‰
+	long					gamepad4;							//ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ï¼ˆRposï¼‰
 
-	long					client_scroll_x;					//ƒXƒNƒ[ƒ‹ˆÊ’u‚w²
-	long					client_scroll_y;					//ƒXƒNƒ[ƒ‹ˆÊ’u‚x²
+	long					client_scroll_x;					//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ï¼¸è»¸
+	long					client_scroll_y;					//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®ï¼¹è»¸
 
 //192
 
 	char					___filler_10[24];
 
-	double					zoom;								//Šg‘å—¦i1.0:“™”{j
+	double					zoom;								//æ‹¡å¤§ç‡ï¼ˆ1.0:ç­‰å€ï¼‰
 
 //224
 
 	char					___filler_11[4];
 
-	long					mode;								//5:ƒpƒuƒŠƒbƒNƒ‚[ƒh
-	long					sound_quality;						//‰¹¿i1:Å’á‰¹¿,2:’á‰¹¿,3:•W€‰¹¿,4:‚‰¹¿,5:Å‚‰¹¿j
+	long					mode;								//5:ãƒ‘ãƒ–ãƒªãƒƒã‚¯ãƒ¢ãƒ¼ãƒ‰
+	long					sound_quality;						//éŸ³è³ªï¼ˆ1:æœ€ä½éŸ³è³ª,2:ä½éŸ³è³ª,3:æ¨™æº–éŸ³è³ª,4:é«˜éŸ³è³ª,5:æœ€é«˜éŸ³è³ªï¼‰
 
 	char					___filler_12[4];
 
-	long					gamepad5;							//ƒQ[ƒ€ƒpƒbƒhiPovj
-	long					gamepad6;							//ƒQ[ƒ€ƒpƒbƒhiButtonsj
-	long					gamepad7;							//ƒQ[ƒ€ƒpƒbƒhiUposj
-	long					gamepad8;							//ƒQ[ƒ€ƒpƒbƒhiVposj
+	long					gamepad5;							//ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ï¼ˆPovï¼‰
+	long					gamepad6;							//ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ï¼ˆButtonsï¼‰
+	long					gamepad7;							//ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ï¼ˆUposï¼‰
+	long					gamepad8;							//ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ï¼ˆVposï¼‰
 
 //256
 
 };
 
-//‰¹ºˆ—‰Šú‰»
+//éŸ³å£°å‡¦ç†åˆæœŸåŒ–
 bool ds_init(long p_samplerate)
 {
-	DirectSoundCreate(0,&g_ds,0);
+	DirectSoundCreate(0,&g_ds,0);	
 
 	if (g_ds == 0)
 	{
@@ -182,7 +182,7 @@ bool ds_init(long p_samplerate)
     return true;
 }
 
-//‰¹ºˆ—‰ğ•ú
+//éŸ³å£°å‡¦ç†è§£æ”¾
 void ds_exit()
 {
 	if (g_dsb != 0)
@@ -205,7 +205,7 @@ void ds_exit()
 	}
 }
 
-//‘—Mˆ—
+//é€ä¿¡å‡¦ç†
 long send_data(SOCKET *p_sock,char *p_buf,long p_size)
 {
 	char key[16 + 1];
@@ -238,7 +238,7 @@ long send_data(SOCKET *p_sock,char *p_buf,long p_size)
 	return send(*p_sock,p_buf,p_size,0);
 }
 
-//óMˆ—
+//å—ä¿¡å‡¦ç†
 long recv_data(SOCKET *p_sock,char *p_buf,long p_size)
 {
 	long size = 0;
@@ -262,7 +262,7 @@ long recv_data(SOCKET *p_sock,char *p_buf,long p_size)
 	return size;
 }
 
-//ƒ}ƒEƒX‘€ì
+//ãƒã‚¦ã‚¹æ“ä½œ
 void mouse_send(char p_type,char p_value)
 {
 	for (long sx1 = 0;sx1 < 256;sx1 ++)
@@ -329,7 +329,7 @@ void mouse_send(char p_type,char p_value)
 	}
 }
 
-//ƒL[ƒ{[ƒh‘€ì
+//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œ
 void keyboard_send(char p_type,char p_value)
 {
 	if (p_value == VK_OEM_AUTO ||
@@ -351,7 +351,7 @@ void keyboard_send(char p_type,char p_value)
 	}
 }
 
-//‘€ìŒnƒXƒŒƒbƒh
+//æ“ä½œç³»ã‚¹ãƒ¬ãƒƒãƒ‰
 DWORD WINAPI thread1(LPVOID p_arg)
 {
 	COM_DATA com_data;
@@ -363,7 +363,7 @@ DWORD WINAPI thread1(LPVOID p_arg)
 	{
 		Sleep(10);
 
-		//‘€ìŒn
+		//æ“ä½œç³»
 
 		if (g_sock1 == -1)
 		{
@@ -373,7 +373,7 @@ DWORD WINAPI thread1(LPVOID p_arg)
 
 			if (connect(g_sock1,(struct sockaddr *)&g_addr,sizeof(sockaddr_in)) == SOCKET_ERROR)
 			{
-				//Ú‘±ƒGƒ‰[
+				//æ¥ç¶šã‚¨ãƒ©ãƒ¼
 
 				closesocket(g_sock1);
 				g_sock1 = -1;
@@ -399,7 +399,7 @@ DWORD WINAPI thread1(LPVOID p_arg)
 		com_data.mode = 5;
 		com_data.monitor_no = 1;
 
-		//‘€ìŒn
+		//æ“ä½œç³»
 
 		com_data.control = 1;
 		com_data.mouse_cursor = 0;
@@ -626,7 +626,7 @@ DWORD WINAPI thread1(LPVOID p_arg)
 			com_data.gamepad8 = 0x0000;
 		}
 
-		//‰æ‘œŒn
+		//ç”»åƒç³»
 
 		com_data.zoom = 1.0;
 		com_data.image_cx = g_capture_cx;
@@ -635,13 +635,13 @@ DWORD WINAPI thread1(LPVOID p_arg)
 		com_data.client_scroll_y = 0;
 		com_data.video_quality = 3;
 
-		//‰¹ºŒn
+		//éŸ³å£°ç³»
 
 		com_data.sound_type = 1;
 		com_data.sound_capture = 1;
 		com_data.sound_quality = 3;
 
-		//ƒwƒbƒ_[‘—M
+		//ãƒ˜ãƒƒãƒ€ãƒ¼é€ä¿¡
 		if (send_data(&g_sock1,(char*)&com_data,sizeof(COM_DATA)) < 0)
 		{
 			closesocket(g_sock1);
@@ -656,7 +656,7 @@ DWORD WINAPI thread1(LPVOID p_arg)
 			continue;
 		}
 
-		//ƒwƒbƒ_[óM
+		//ãƒ˜ãƒƒãƒ€ãƒ¼å—ä¿¡
 		if (recv_data(&g_sock1,(char*)&com_data,sizeof(COM_DATA)) < 0)
 		{
 			closesocket(g_sock1);
@@ -673,7 +673,7 @@ DWORD WINAPI thread1(LPVOID p_arg)
 
 		if (com_data.mode == 0)
 		{
-			//ƒpƒXƒ[ƒhƒGƒ‰[
+			//ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚¨ãƒ©ãƒ¼
 
 			continue;
 		}
@@ -689,7 +689,7 @@ DWORD WINAPI thread1(LPVOID p_arg)
 	return 0;
 }
 
-//‰æ‘œŒnƒXƒŒƒbƒh
+//ç”»åƒç³»ã‚¹ãƒ¬ãƒƒãƒ‰
 DWORD WINAPI thread2(LPVOID p_arg)
 {
 	COM_DATA com_data;
@@ -698,7 +698,7 @@ DWORD WINAPI thread2(LPVOID p_arg)
 	{
 		Sleep(10);
 
-		//‰æ‘œŒn
+		//ç”»åƒç³»
 
 		if (g_sock1 == -1)
 		{
@@ -718,7 +718,7 @@ DWORD WINAPI thread2(LPVOID p_arg)
 
 			if (connect(g_sock2,(struct sockaddr *)&g_addr,sizeof(sockaddr_in)) == SOCKET_ERROR)
 			{
-				//Ú‘±ƒGƒ‰[
+				//æ¥ç¶šã‚¨ãƒ©ãƒ¼
 
 				closesocket(g_sock2);
 				g_sock2 = -1;
@@ -727,7 +727,7 @@ DWORD WINAPI thread2(LPVOID p_arg)
 			}
 		}
 
-		//ƒwƒbƒ_[óM
+		//ãƒ˜ãƒƒãƒ€ãƒ¼å—ä¿¡
 		if (recv_data(&g_sock2,(char *)&com_data,sizeof(COM_DATA)) < 0)
 		{
 			closesocket(g_sock1);
@@ -746,7 +746,7 @@ DWORD WINAPI thread2(LPVOID p_arg)
 
 		char *image_buf = (char *)malloc(image_size);
 
-		//–{‘ÌóM
+		//æœ¬ä½“å—ä¿¡
 		if (recv_data(&g_sock2,(char *)image_buf,image_size) < 0)
 		{
 			free(image_buf);
@@ -763,7 +763,7 @@ DWORD WINAPI thread2(LPVOID p_arg)
 			continue;
 		}
 
-		//•`‰æ
+		//æç”»
 
 		IPicture *pic;
 		IStream *str;
@@ -805,7 +805,7 @@ DWORD WINAPI thread2(LPVOID p_arg)
 	return 0;
 }
 
-//‰¹ºŒnƒXƒŒƒbƒh
+//éŸ³å£°ç³»ã‚¹ãƒ¬ãƒƒãƒ‰
 DWORD WINAPI thread3(LPVOID p_arg)
 {
 	COM_DATA com_data;
@@ -814,7 +814,7 @@ DWORD WINAPI thread3(LPVOID p_arg)
 	{
 		Sleep(10);
 
-		//‰¹ºŒn
+		//éŸ³å£°ç³»
 
 		if (g_sock2 == -1)
 		{
@@ -832,7 +832,7 @@ DWORD WINAPI thread3(LPVOID p_arg)
 
 			if (connect(g_sock3,(struct sockaddr *)&g_addr,sizeof(sockaddr_in)) == SOCKET_ERROR)
 			{
-				//Ú‘±ƒGƒ‰[
+				//æ¥ç¶šã‚¨ãƒ©ãƒ¼
  
 				closesocket(g_sock3);
 				g_sock3 = -1;
@@ -845,7 +845,7 @@ DWORD WINAPI thread3(LPVOID p_arg)
 			g_ca_format = 0;
 		}
 
-		//ƒwƒbƒ_[óM
+		//ãƒ˜ãƒƒãƒ€ãƒ¼å—ä¿¡
 		if (recv_data(&g_sock3,(char *)&com_data,sizeof(COM_DATA)) < 0)
 		{
 			closesocket(g_sock3);
@@ -861,7 +861,7 @@ DWORD WINAPI thread3(LPVOID p_arg)
 		long sound_size = com_data.data_size;
 		char *sound_buf = (char *)malloc(sound_size);
 
-		//–{‘ÌóM
+		//æœ¬ä½“å—ä¿¡
 		if (recv_data(&g_sock3,(char *)sound_buf,sound_size) < 0)
 		{
 			closesocket(g_sock3);
@@ -877,7 +877,7 @@ DWORD WINAPI thread3(LPVOID p_arg)
 			ds_init(com_data.samplerate);
 		}
 
-		//Ä¶
+		//å†ç”Ÿ
 		if (g_dsb != 0)
 		{
 			LPVOID	lock_data;
@@ -925,14 +925,14 @@ DWORD WINAPI thread3(LPVOID p_arg)
 	return 0;
 }
 
-//ƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒ
+//ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£
 LRESULT CALLBACK proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam)
 {
 	if (message == WM_SYSCOMMAND)
 	{
 		if ((wParam & 0xfff0) == SC_KEYMENU)
 		{
-			//MENUƒL[–³Œø
+			//MENUã‚­ãƒ¼ç„¡åŠ¹
 
 			return false;
 		}
@@ -940,7 +940,7 @@ LRESULT CALLBACK proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam)
 
 	if (message == WM_CLOSE)
 	{
-		//ƒEƒCƒ“ƒhƒEƒNƒ[ƒY
+		//ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ­ãƒ¼ã‚º
 
 		g_end = 1;
 	}
@@ -951,7 +951,7 @@ LRESULT CALLBACK proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam)
 		{
 			if (LOWORD(wParam) == 65200)
 			{
-				//Okƒ{ƒ^ƒ“
+				//Okãƒœã‚¿ãƒ³
 
 				g_end = 0;
 			}
@@ -960,7 +960,7 @@ LRESULT CALLBACK proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam)
 
 	if (g_end == 0)
 	{
-		//ƒ}ƒEƒXŒn
+		//ãƒã‚¦ã‚¹ç³»
 
 		if (message == WM_MOUSEMOVE)
 		{
@@ -1074,7 +1074,7 @@ LRESULT CALLBACK proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam)
 			}
 		}
 
-		//ƒL[ƒ{[ƒhŒn
+		//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç³»
 
 		if (message == WM_KEYDOWN ||
 			message == WM_SYSKEYDOWN)
@@ -1108,7 +1108,7 @@ LRESULT CALLBACK proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam)
 	return DefWindowProc(hWnd,message,wParam,lParam);
 }
 
-//“h‚è’×‚µ
+//å¡—ã‚Šæ½°ã—
 void fill_window(COLORREF p_rgb)
 {
 	RECT rect;
@@ -1124,7 +1124,7 @@ void fill_window(COLORREF p_rgb)
 	DeleteObject(brs);
 }
 
-//ƒƒCƒ“ƒ‹[ƒ`ƒ“
+//ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒãƒ³
 int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow)
 {
 	g_end = -1;
@@ -1133,13 +1133,13 @@ int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int n
 	g_encryption_key = (char *)malloc(17);
 	g_connect_ver = (char *)malloc(5);
 
-	g_window_cx = 960;										//ƒEƒCƒ“ƒhƒE•
-	g_window_cy = 540;										//ƒEƒCƒ“ƒhƒE‚‚³
+	g_window_cx = 960;										//ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦å¹…
+	g_window_cy = 540;										//ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦é«˜ã•
 
-	g_capture_cx = 1920;									//ƒLƒƒƒvƒ`ƒƒ[•
-	g_capture_cy = 1080;									//ƒLƒƒƒvƒ`ƒƒ[‚‚³
+	g_capture_cx = 1920;									//ã‚­ãƒ£ãƒ—ãƒãƒ£ãƒ¼å¹…
+	g_capture_cy = 1080;									//ã‚­ãƒ£ãƒ—ãƒãƒ£ãƒ¼é«˜ã•
 
-	strcpy(g_connect_ver,"0000");							//’ÊMƒo[ƒWƒ‡ƒ“
+	strcpy(g_connect_ver,"0000");							//é€šä¿¡ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 
 	g_sock1 = -1;
 	g_sock2 = -1;
